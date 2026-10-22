@@ -1,0 +1,42 @@
+table DIM_UBS
+	lineageTag: 0d9a2779-bc41-4772-834d-c7b239882cf2
+
+	column 'Código UBS'
+		formatString: 0
+		lineageTag: 27a8115a-8ba8-4e48-b9cd-1501456cf136
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Código UBS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome UBS'
+		lineageTag: 7145a1aa-5b7a-44ce-bb42-256e8a64b203
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nome UBS]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_UBS = calculated
+		mode: import
+		source = ```
+				
+				VAR _TabelaBase = 
+				    SELECTCOLUMNS (
+				        FILTER (
+				            DISTINCT ( FATO_NPS[ubs] ),
+				            NOT ISBLANK ( FATO_NPS[ubs] )
+				        ),
+				        "Código UBS", FATO_NPS[ubs]
+				    )
+				
+				RETURN
+				    ADDCOLUMNS (
+				        _TabelaBase,
+				        "Nome UBS", "UBS " & FORMAT ( [Código UBS], "00" )
+				    )
+				```
+
+	annotation PBI_Id = adc3be7ccbee4f2d8d4eb5b025d9ea18
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "NPS 2025"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d69d3db2-a96f-43b1-ab44-81ffd1f3c7a3"
+  }
+}

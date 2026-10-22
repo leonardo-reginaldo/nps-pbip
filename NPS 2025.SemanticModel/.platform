@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "NPS 2025"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9632034d-78dd-42b9-9c26-ffab9b6d0517"
+  }
+}

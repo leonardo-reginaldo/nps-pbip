@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "78abd3a5c74425713f82",
+  "position": {
+    "x": 9.9646142958244859,
+    "y": 10.870488322717621,
+    "z": 4007,
+    "height": 43.481953290870486,
+    "width": 457.4663835810332,
+    "tabOrder": 4007
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "NPS FICTÍCIO | GRUPO UBS LTDA."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

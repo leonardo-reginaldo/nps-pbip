@@ -1,0 +1,17 @@
+relationship 4a8b5937-aebc-48d7-9af9-509611e8066f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.Data
+	toColumn: LocalDateTable_956d86f4-7772-49fc-a805-25087dc8368d.Date
+
+relationship 4a5fe625-9a49-c001-6d30-948ea1092bb9
+	fromColumn: FATO_NPS.data_hora
+	toColumn: DIM_CALENDARIO.Data
+
+relationship f92229f7-0d0a-db5d-500f-f83da079b619
+	fromColumn: FATO_NPS.ubs
+	toColumn: DIM_UBS.'Código UBS'
+
+relationship 52a71290-6296-0a1f-5e9f-1a26425d0a4c
+	fromColumn: FATO_NPS.nota_recomendacao
+	toColumn: DIM_NOTAS.Nota
+

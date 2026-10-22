@@ -1,0 +1,178 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "7a464e3f2445a5431226",
+  "position": {
+    "x": 207.67871485943775,
+    "y": 453.39759036144579,
+    "z": 4004,
+    "height": 247.77510040160644,
+    "width": 542.843373493976,
+    "tabOrder": 4004
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_NPS_LEGENDA"
+                    }
+                  },
+                  "Property": "Faixa de Pontuação"
+                }
+              },
+              "queryRef": "DIM_NPS_LEGENDA.Faixa de Pontuação",
+              "nativeQueryRef": "Faixa de Pontuação"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_NPS_LEGENDA"
+                    }
+                  },
+                  "Property": "Zona de Classificação"
+                }
+              },
+              "queryRef": "DIM_NPS_LEGENDA.Zona de Classificação",
+              "nativeQueryRef": "Zona de Classificação"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_NPS_LEGENDA"
+                    }
+                  },
+                  "Property": "Significado Prático"
+                }
+              },
+              "queryRef": "DIM_NPS_LEGENDA.Significado Prático",
+              "nativeQueryRef": "Significado Prático"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_NPS_LEGENDA"
+                  }
+                },
+                "Property": "Zona de Classificação"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "233.8313253012048D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_NPS_LEGENDA.Significado Prático"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8fd0a280fe199192359d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_NPS_LEGENDA"
+              }
+            },
+            "Property": "Faixa de Pontuação"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f736f754a8892efc506f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_NPS_LEGENDA"
+              }
+            },
+            "Property": "Significado Prático"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "173bdfaba0a44f56bf9f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_NPS_LEGENDA"
+              }
+            },
+            "Property": "Zona de Classificação"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

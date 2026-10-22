@@ -1,0 +1,38 @@
+table DIM_NPS_LEGENDA
+	lineageTag: 62f47ee2-fb6f-4c83-8654-ed115c57982b
+
+	column 'Faixa de Pontuação'
+		dataType: string
+		lineageTag: 18cc440b-d54c-4d21-8141-1910e89801fe
+		summarizeBy: none
+		sourceColumn: Faixa de Pontuação
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Zona de Classificação'
+		dataType: string
+		lineageTag: d735eac9-3959-4fb7-aab2-6ad6128c7fba
+		summarizeBy: none
+		sourceColumn: Zona de Classificação
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Significado Prático'
+		dataType: string
+		lineageTag: d7449d3d-891b-42da-94f2-d2f80425459e
+		summarizeBy: none
+		sourceColumn: Significado Prático
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_NPS_LEGENDA = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("PZAxTkMxDIavYr25QDuUDp0K4gAMLFQdrBdTUiXxw0lQxTnYS8tQCakbN8iFOALOe1UnO7bj7/e/XDazW0CYjMfNqPnb7Q7wzAHBEDxsW3LlJ7QWtXXvLIVEEdAl9DUFCmvcoOEIVKsM5RSMbal+tjXDcizfDCzrcgj6vG5Wo2UznShvNh1w+wvuMaOzBg1p445DBKGYlaX7R+AxQsseOg5Jea1D0fCWVcTWrskDbnKs6gJDJ2xy4ptI8m7LkQdqhU7PN35doItOSJV+oO7Q3sKRJATPhkTBc3gte/DZDsyzAYFyqnTO0JFKCJpjkn5IqGWRfm7AXqmxSh7An78D+F7KKakfWnxSb3qLwZf91nqc6zR5lRURkh7m0UZVmgQTaxFe0GEwrHUHGqoFerDnvqvM1T8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Faixa de Pontuação" = _t, #"Zona de Classificação" = _t, #"Significado Prático" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Faixa de Pontuação", type text}, {"Zona de Classificação", type text}, {"Significado Prático", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

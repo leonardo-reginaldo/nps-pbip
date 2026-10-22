@@ -1,0 +1,21 @@
+{
+  "name": "Custom",
+  "textClasses": {
+    "label": {
+      "fontFace": "Verdana",
+      "fontSize": 8
+    },
+    "callout": {
+      "fontFace": "Verdana",
+      "fontSize": 12
+    },
+    "title": {
+      "fontFace": "Verdana",
+      "fontSize": 9
+    },
+    "header": {
+      "fontFace": "Verdana",
+      "fontSize": 9
+    }
+  }
+}

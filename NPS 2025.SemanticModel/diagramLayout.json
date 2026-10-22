@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 375,
+            "y": 173.125
+          },
+          "nodeIndex": "FATO_NPS",
+          "nodeLineageTag": "4c198871-8897-4d82-a9c2-7ca27161f53d",
+          "size": {
+            "height": 270,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 729,
+            "y": 174.125
+          },
+          "nodeIndex": "@Medidas",
+          "nodeLineageTag": "031357d6-4a45-4346-8f09-a55e589f42fc",
+          "size": {
+            "height": 266,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 172.125
+          },
+          "nodeIndex": "DIM_CALENDARIO",
+          "nodeLineageTag": "f1f04b4f-0581-4853-b414-6a67dfc45b86",
+          "size": {
+            "height": 177.55555555555554,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 13.333333333333329,
+            "y": 385.125
+          },
+          "nodeIndex": "DIM_UBS",
+          "nodeLineageTag": "0d9a2779-bc41-4772-834d-c7b239882cf2",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 724,
+            "y": 489.125
+          },
+          "nodeIndex": "DIM_NPS_LEGENDA",
+          "nodeLineageTag": "62f47ee2-fb6f-4c83-8654-ed115c57982b",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12.111111111111143,
+            "y": 578.98611111111109
+          },
+          "nodeIndex": "DIM_NOTAS",
+          "nodeLineageTag": "1eda811c-67f2-48a0-81fa-30b7061e8266",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 90,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

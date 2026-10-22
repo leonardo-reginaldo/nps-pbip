@@ -1,0 +1,54 @@
+table DIM_NOTAS
+	lineageTag: 1eda811c-67f2-48a0-81fa-30b7061e8266
+
+	column Nota
+		formatString: 0
+		lineageTag: 6f75b062-54e3-4af6-942c-184ff20253ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nota]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Classificacao_NPS
+		lineageTag: 129efe08-fffe-4c7d-9896-d826ff945701
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Classificacao_NPS]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordem
+		formatString: 0
+		lineageTag: 23f2c7d3-9a04-4f61-acdc-c65850165e71
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ordem]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_NOTAS = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Nota", INTEGER,
+				    "Classificacao_NPS", STRING,
+				    "Ordem", INTEGER,
+				    {
+				        { 0,  "Detrator", 3 },
+				        { 1,  "Detrator", 3 },
+				        { 2,  "Detrator", 3 },
+				        { 3,  "Detrator", 3 },
+				        { 4,  "Detrator", 3 },
+				        { 5,  "Detrator", 3 },
+				        { 6,  "Detrator", 3 },
+				        { 7,  "Neutro",   2 },
+				        { 8,  "Neutro",   2 },
+				        { 9,  "Promotor", 1 },
+				        { 10, "Promotor", 1 }
+				    }
+				)
+
+	annotation PBI_Id = 3c7efb145fda4c5fa5cdf20020042d4a
+

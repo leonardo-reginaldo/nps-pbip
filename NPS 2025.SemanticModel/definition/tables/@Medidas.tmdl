@@ -1,0 +1,100 @@
+table @Medidas
+	lineageTag: 031357d6-4a45-4346-8f09-a55e589f42fc
+
+	measure 'Total NPS Respondidos' =
+			
+			COUNT(FATO_NPS[id])
+		formatString: 0
+		lineageTag: 457eff56-4efe-4ca9-b7f6-7b56148f39fb
+
+	measure 'Total de Pacientes' =
+			
+			DISTINCTCOUNT(FATO_NPS[id_paciente])
+		formatString: #,0
+		lineageTag: 6ac24c05-73ff-4f94-8da3-f1e1bd9b1993
+
+	measure NPS = ```
+			
+			VAR TotalRespostas = 
+			    COUNTROWS ( FATO_NPS )
+			
+			VAR Promotores = 
+			    CALCULATE (
+			        COUNTROWS ( FATO_NPS ),
+			        FATO_NPS[nota_recomendacao] >= 9
+			    )
+			
+			VAR Detratores = 
+			    CALCULATE (
+			        COUNTROWS ( FATO_NPS ),
+			        FATO_NPS[nota_recomendacao] <= 6
+			    )
+			
+			VAR ResultadoNPS = 
+			    DIVIDE ( Promotores - Detratores, TotalRespostas, 0 ) * 100
+			
+			RETURN
+			    ResultadoNPS
+			```
+		lineageTag: 32b7c29f-8359-4cb0-bdc4-85db58df3dc1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Promotores =
+			
+			CALCULATE (
+			    COUNTROWS ( FATO_NPS ),
+			    FATO_NPS[nota_recomendacao] >= 9
+			)
+		formatString: 0
+		lineageTag: 3df92d51-3cfa-48df-94d1-c9f690dfe73b
+
+	measure Detratores =
+			
+			CALCULATE (
+			    COUNTROWS ( FATO_NPS ),
+			    FATO_NPS[nota_recomendacao] <= 6
+			)
+		formatString: 0
+		lineageTag: 93530b1c-fefd-441a-8771-67fe6d9b0d86
+
+	measure Neutros = ```
+			
+			CALCULATE (
+			    COUNTROWS ( FATO_NPS ),
+			    FATO_NPS[nota_recomendacao] = 7 
+			        || FATO_NPS[nota_recomendacao] = 8
+			)
+			```
+		formatString: 0
+		lineageTag: bec5ad86-5745-4104-86fe-78ca22d1056e
+
+	measure Classificacao_NPS_Medida =
+			
+			VAR _Nota = SELECTEDVALUE ( FATO_NPS[nota_recomendacao] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _Nota ), BLANK (),
+			        _Nota >= 9, "Promotor",
+			        _Nota >= 7, "Neutro",
+			        _Nota <= 6, "Detrator",
+			        BLANK ()
+			    )
+		lineageTag: 9880bf25-d99b-4b73-b6af-d986ad5fc916
+
+	column 00Lista:
+		formatString: 0
+		lineageTag: 50493269-ab49-4a40-8ca6-0a3fcb70f76b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [00Lista:]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition @Medidas = calculated
+		mode: import
+		source = Row("00Lista:", BLANK())
+
+	annotation PBI_Id = 8f06cbf3d797450688404059954a8126
+

@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "d09e32ae94372125eed4",
+  "position": {
+    "x": 776.3340410474168,
+    "y": 188.42179759377211,
+    "z": 4002,
+    "height": 519.97169143665951,
+    "width": 487.36022646850671,
+    "tabOrder": 4002
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Nome UBS"
+                }
+              },
+              "queryRef": "DIM_UBS.Nome UBS",
+              "nativeQueryRef": "Nome UBS",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Total de Pacientes"
+                }
+              },
+              "queryRef": "@Medidas.Total de Pacientes",
+              "nativeQueryRef": "Total de Pacientes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Total NPS Respondidos"
+                }
+              },
+              "queryRef": "@Medidas.Total NPS Respondidos",
+              "nativeQueryRef": "Total NPS Respondidos"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "NPS"
+                }
+              },
+              "queryRef": "@Medidas.NPS",
+              "nativeQueryRef": "NPS"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "@Medidas"
+                  }
+                },
+                "Property": "NPS"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0428513afb94ab5a0e27",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "NPS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "47204a2ae9c5070c0a50",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_UBS"
+              }
+            },
+            "Property": "Nome UBS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fcb4ed1d793035656eca",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Total de Pacientes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "654c9aadf66d4cc8d3b9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Total NPS Respondidos"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

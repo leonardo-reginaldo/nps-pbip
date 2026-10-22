@@ -1,0 +1,129 @@
+table DIM_CALENDARIO
+	lineageTag: f1f04b4f-0581-4853-b414-6a67dfc45b86
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f0d83de6-0fb7-4d24-a1ec-2a99553ca423
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: 4a8b5937-aebc-48d7-9af9-509611e8066f
+			defaultHierarchy: LocalDateTable_956d86f4-7772-49fc-a805-25087dc8368d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 76d0f398-7341-4954-8ef9-ad6961ef2654
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre/Ano
+		dataType: string
+		lineageTag: a3d6a8c4-b7e0-442f-85bc-7d834779e315
+		summarizeBy: none
+		sourceColumn: Semestre/Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre/Ano
+		dataType: string
+		lineageTag: 606d28d9-6b72-4d60-8930-004d5defddca
+		summarizeBy: none
+		sourceColumn: Trimestre/Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês/Ano
+		dataType: string
+		lineageTag: d39b1a06-9b76-4f90-b5cf-c24fdece3766
+		summarizeBy: none
+		sourceColumn: Mês/Ano
+		sortByColumn: MesAnoNum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAnoNum
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1eee08ad-bfb8-4277-abf2-2de5fc549445
+		summarizeBy: sum
+		sourceColumn: MesAnoNum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia da Semana'
+		dataType: string
+		lineageTag: 6b2c8ef2-9217-4957-8e44-dba8251d6f1a
+		summarizeBy: none
+		sourceColumn: Dia da Semana
+		sortByColumn: DiaDaSemanaNum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaDaSemanaNum
+		dataType: int64
+		formatString: 0
+		lineageTag: 498bce89-e573-4bf5-9a33-d8e7dded7b52
+		summarizeBy: sum
+		sourceColumn: DiaDaSemanaNum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_CALENDARIO = m
+		mode: import
+		queryGroup: DIMENSÕES
+		source = ```
+				// Tabela: DIM_CALENDARIO
+				let
+				    // 1. Extrair apenas as datas únicas que existem na coluna data_hora da FATO_NPS
+				    ListaDatasComHora = FATO_NPS[data_hora],
+				    DatasApenas = List.Transform(ListaDatasComHora, Date.From),
+				    DatasUnicas = List.Distinct(DatasApenas),
+				    
+				    // 2. Converter a lista de datas em tabela
+				    #"Tabela Criada" = Table.FromList(DatasUnicas, Splitter.SplitByNothing(), {"Data"}, null, ExtraValues.Error),
+				    #"Tipo Alterado Data" = Table.TransformColumnTypes(#"Tabela Criada",{{"Data", type date}}),
+				    
+				    // 3. Ordenar as datas (opcional, mas recomendado para organização)
+				    #"Datas Ordenadas" = Table.Sort(#"Tipo Alterado Data",{{"Data", Order.Ascending}}),
+				    
+				    // 4. Criar colunas solicitadas
+				    #"Ano Adicionado" = Table.AddColumn(#"Datas Ordenadas", "Ano", each Date.Year([Data]), Int64.Type),
+				    
+				    // Semestre / Ano (Ex: 1S/2024, 2S/2024)
+				    #"Semestre/Ano Adicionado" = Table.AddColumn(#"Ano Adicionado", "Semestre/Ano", each Text.From(if Date.Month([Data]) <= 6 then 1 else 2) & "S/" & Text.From(Date.Year([Data])), type text),
+				    
+				    // Trimestre / Ano (Ex: T1/2024, T2/2024)
+				    #"Trimestre/Ano Adicionado" = Table.AddColumn(#"Semestre/Ano Adicionado", "Trimestre/Ano", each "T" & Text.From(Date.QuarterOfYear([Data])) & "/" & Text.From(Date.Year([Data])), type text),
+				    
+				    // Mês / Ano (Ex: Jan/2024, Fev/2024) + Coluna de Ordenação MêsAnoNum (Ex: 202401)
+				    #"Nome do Mês" = Table.AddColumn(#"Trimestre/Ano Adicionado", "Mês/Ano", each Text.Proper(Text.Start(Date.MonthName([Data], "pt-BR"), 3)) & "/" & Text.From(Date.Year([Data])), type text),
+				    #"MêsAnoNum Adicionado" = Table.AddColumn(#"Nome do Mês", "MesAnoNum", each Date.Year([Data]) * 100 + Date.Month([Data]), Int64.Type),
+				    
+				    // Dia da Semana (Ex: Segunda-Feira, Terça-Feira) + Dia da Semana Numérico
+				    #"Dia da Semana Adicionado" = Table.AddColumn(#"MêsAnoNum Adicionado", "Dia da Semana", each Text.Proper(Date.DayOfWeekName([Data], "pt-BR")), type text),
+				    #"DiaDaSemanaNum Adicionado" = Table.AddColumn(#"Dia da Semana Adicionado", "DiaDaSemanaNum", each Date.DayOfWeek([Data], Day.Monday) + 1, Int64.Type)
+				in
+				    #"DiaDaSemanaNum Adicionado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,112 @@
+table FATO_NPS
+	lineageTag: 4c198871-8897-4d82-a9c2-7ca27161f53d
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 504aa7d7-d639-4bc0-b5da-db42756602e7
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_paciente
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fc0c48d-4438-443d-a6ce-55e6f5450f65
+		summarizeBy: sum
+		sourceColumn: id_paciente
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_hora
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9dda604d-0b3a-4b6f-a15b-96a6430bf3c9
+		summarizeBy: none
+		sourceColumn: data_hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ubs
+		dataType: int64
+		formatString: 0
+		lineageTag: 07db1df6-bdf3-4fd2-b51e-9bb40fb4862a
+		summarizeBy: none
+		sourceColumn: ubs
+
+		annotation SummarizationSetBy = Automatic
+
+	column setor
+		dataType: string
+		lineageTag: a0eefbe5-744f-4b24-9f26-7d35bd120b94
+		summarizeBy: none
+		sourceColumn: setor
+
+		annotation SummarizationSetBy = Automatic
+
+	column nota_recomendacao
+		dataType: int64
+		formatString: 0
+		lineageTag: faa23ba9-0c33-4ca9-8da1-238f96f78cc8
+		summarizeBy: none
+		sourceColumn: nota_recomendacao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FATO_NPS = m
+		mode: import
+		queryGroup: FATO
+		source = ```
+				let
+				    Fonte = Csv.Document(File.Contents("G:\Meu Drive\Consultorias\NPS_FICTICIO\nps_ficticio_100k.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id", Int64.Type}, {"id_paciente", Int64.Type}, {"data_hora", type datetime}, {"ubs", Int64.Type}, {"setor", type text}, {"nota_recomendacao", Int64.Type}}),
+				    
+				    // 1. Excluir linhas onde a coluna 'setor' está nula, vazia ou apenas com espaços
+				    #"Setor Nao Vazio" = Table.SelectRows(#"Tipo Alterado", each [setor] <> null and [setor] <> "" and Text.Trim([setor]) <> ""),
+				    
+				    // 2. Ordenar por id_paciente e por data_hora (do mais recente para o mais antigo)
+				    #"Linhas Classificadas" = Table.Sort(#"Setor Nao Vazio",{{"id_paciente", Order.Ascending}, {"data_hora", Order.Descending}}),
+				    
+				    // Função para manter a resposta mais recente e descartar outras do mesmo paciente dentro da janela de 15 dias
+				    FiltrarJanela15Dias = (tabela as table) as table =>
+				        let
+				            Linhas = Table.ToRecords(tabela),
+				            Filtrado = List.Accumulate(
+				                Linhas,
+				                {},
+				                (estado, atual) =>
+				                    if List.IsEmpty(estado) then
+				                        {atual} // Mantém sempre a resposta mais recente (primeira da lista)
+				                    else
+				                        let
+				                            UltimaDataMantida = List.Last(estado)[data_hora],
+				                            DiferencaDias = Duration.Days(UltimaDataMantida - atual[data_hora])
+				                        in
+				                            // Só mantém a resposta se ela tiver ocorrido há 15 dias ou mais após a última mantida
+				                            if DiferencaDias >= 15 then
+				                                estado & {atual}
+				                            else
+				                                estado
+				            ),
+				            Resultado = Table.FromRecords(Filtrado, Value.Type(tabela))
+				        in
+				            Resultado,
+				            
+				    // 3. Aplicar o filtro de 15 dias agrupando por id_paciente
+				    #"Agrupado por Paciente" = Table.Group(#"Linhas Classificadas", {"id_paciente"}, {{"TabelaFiltrada", FiltrarJanela15Dias, type table}}),
+				    
+				    // 4. Recombinar as tabelas filtradas em um único resultado
+				    #"Tabela Final" = Table.Combine(#"Agrupado por Paciente"[TabelaFiltrada]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tabela Final",{{"data_hora", type date}})
+				in
+				    #"Tipo Alterado1"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,306 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "b08863b77721fb34fee6",
+  "position": {
+    "x": 22.61847389558233,
+    "y": 70.939759036144579,
+    "z": 4003,
+    "height": 99.726907630522092,
+    "width": 1240.9317269076305,
+    "tabOrder": 4003
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Total de Pacientes"
+                }
+              },
+              "queryRef": "@Medidas.Total de Pacientes",
+              "nativeQueryRef": "Total de Pacientes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Total NPS Respondidos"
+                }
+              },
+              "queryRef": "@Medidas.Total NPS Respondidos",
+              "nativeQueryRef": "Total NPS Respondidos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Promotores"
+                }
+              },
+              "queryRef": "@Medidas.Promotores",
+              "nativeQueryRef": "Promotores"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Detratores"
+                }
+              },
+              "queryRef": "@Medidas.Detratores",
+              "nativeQueryRef": "Detratores"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "Neutros"
+                }
+              },
+              "queryRef": "@Medidas.Neutros",
+              "nativeQueryRef": "Neutros"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "@Medidas"
+                  }
+                },
+                "Property": "Total de Pacientes"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "dividerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "accentBar": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shadowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "29a91a5c05b4243876c7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Total de Pacientes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eb001ec4d5f857db959e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Total NPS Respondidos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "41da902326e7d54b6bff",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Promotores"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a2f9b604310f676d7d96",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Detratores"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5cc0b2764f6a03085222",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "@Medidas"
+              }
+            },
+            "Property": "Neutros"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
