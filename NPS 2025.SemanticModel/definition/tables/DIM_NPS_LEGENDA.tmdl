@@ -29,7 +29,7 @@ table DIM_NPS_LEGENDA
 		mode: import
 		source =
 				let
-				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("PZAxTkMxDIavYr25QDuUDp0K4gAMLFQdrBdTUiXxw0lQxTnYS8tQCakbN8iFOALOe1UnO7bj7/e/XDazW0CYjMfNqPnb7Q7wzAHBEDxsW3LlJ7QWtXXvLIVEEdAl9DUFCmvcoOEIVKsM5RSMbal+tjXDcizfDCzrcgj6vG5Wo2UznShvNh1w+wvuMaOzBg1p445DBKGYlaX7R+AxQsseOg5Jea1D0fCWVcTWrskDbnKs6gJDJ2xy4ptI8m7LkQdqhU7PN35doItOSJV+oO7Q3sKRJATPhkTBc3gte/DZDsyzAYFyqnTO0JFKCJpjkn5IqGWRfm7AXqmxSh7An78D+F7KKakfWnxSb3qLwZf91nqc6zR5lRURkh7m0UZVmgQTaxFe0GEwrHUHGqoFerDnvqvM1T8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Faixa de Pontuação" = _t, #"Zona de Classificação" = _t, #"Significado Prático" = _t]),
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("PZA/UkIxEMavsvNqVCiQggoZD2BhI0Ox87JimCT73CQO4znsESyYcYbOG+RCHsEND6my2X+/b7/FopncAsJoOGwGze92u4cnDgiG4H7TkivfobWopbmzFBJFQJfQ1xAorHCNhiNQzTKUYzC2pTpsa4TlUL4YWFZlH/R73SwHi2Y8Ut5k3ON2F9xDRmcNGtLCHYcIQjErS/cPwGOElj10HJLyWoeiz2tWERu7Ig+4zrGqCwydsMmJbyLJmy0H7qkVOj7f+HmBzjohVfqOukNrM0eSEDwbEgVP4aXswGfbM88GBMqp0jlDRyohaIxJTk1CLYuc+nrsULFX/+Z+/PTguZRjUj80+ajenCwGX3Yb63GqA+RVVkRIephHG1VpEkysSXhGh8Gw5h3oUy3Qgz2fqspc/gE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Faixa de Pontuação" = _t, #"Zona de Classificação" = _t, #"Significado Prático" = _t]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Faixa de Pontuação", type text}, {"Zona de Classificação", type text}, {"Significado Prático", type text}})
 				in
 				    #"Tipo Alterado"

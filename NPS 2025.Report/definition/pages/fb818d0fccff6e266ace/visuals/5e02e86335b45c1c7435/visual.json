@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "5e02e86335b45c1c7435",
   "position": {
-    "x": 207.67871485943775,
-    "y": 188.14457831325302,
-    "z": 4001,
-    "height": 225.15662650602408,
-    "width": 235.43775100401606,
-    "tabOrder": 4001
+    "x": 266.7425320056899,
+    "y": 182.98719772403985,
+    "z": 2000,
+    "height": 277.66714082503557,
+    "width": 334.11095305832151,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "gauge",
@@ -237,7 +237,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#f0a787'"
+                              "Value": "'#E66C37'"
                             }
                           }
                         },
@@ -314,24 +314,47 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "dc60c429060f0513fcc4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
+                }
               }
             },
-            "Property": "NPS"
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
           }
-        },
-        "type": "Advanced"
-      }
-    ]
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

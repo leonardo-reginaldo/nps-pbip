@@ -83,6 +83,58 @@ table @Medidas
 			    )
 		lineageTag: 9880bf25-d99b-4b73-b6af-d986ad5fc916
 
+	measure '% Promotores' = ```
+			
+			VAR _Promotores = 
+			    CALCULATE ( 
+			        COUNTROWS ( FATO_NPS ), 
+			        FATO_NPS[nota_recomendacao] >= 9 
+			    )
+			VAR _TotalRespostas = 
+			    COUNTROWS ( FATO_NPS )
+			
+			RETURN
+			    DIVIDE ( _Promotores, _TotalRespostas, 0 )
+			```
+		lineageTag: 2d4ed26e-a13b-4f74-b40c-bf27bd7c9d71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Neutros' = ```
+			
+			VAR _Neutros = 
+			    CALCULATE ( 
+			        COUNTROWS ( FATO_NPS ), 
+			        FATO_NPS[nota_recomendacao] = 7 
+			            || FATO_NPS[nota_recomendacao] = 8
+			    )
+			VAR _TotalRespostas = 
+			    COUNTROWS ( FATO_NPS )
+			
+			RETURN
+			    DIVIDE ( _Neutros, _TotalRespostas, 0 )
+			```
+		lineageTag: 2f53a303-a304-4a54-a0d5-81ac69527cb6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Detratores' = ```
+			
+			VAR _Detratores = 
+			    CALCULATE ( 
+			        COUNTROWS ( FATO_NPS ), 
+			        FATO_NPS[nota_recomendacao] <= 6 
+			    )
+			VAR _TotalRespostas = 
+			    COUNTROWS ( FATO_NPS )
+			
+			RETURN
+			    DIVIDE ( _Detratores, _TotalRespostas, 0 )
+			```
+		lineageTag: f304ec94-01dc-4d86-aa5a-a01a60b67dfd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 00Lista:
 		formatString: 0
 		lineageTag: 50493269-ab49-4a40-8ca6-0a3fcb70f76b

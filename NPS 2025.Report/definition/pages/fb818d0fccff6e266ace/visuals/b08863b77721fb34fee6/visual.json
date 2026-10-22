@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b08863b77721fb34fee6",
   "position": {
-    "x": 22.61847389558233,
-    "y": 70.939759036144579,
-    "z": 4003,
-    "height": 99.726907630522092,
-    "width": 1240.9317269076305,
-    "tabOrder": 4003
+    "x": 20.028449502133714,
+    "y": 111.97724039829303,
+    "z": 4000,
+    "height": 420.59743954480797,
+    "width": 194.8221906116643,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -127,8 +127,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": -0.25
+                      "ColorId": 0,
+                      "Percent": 0
                     }
                   }
                 }
@@ -154,6 +154,13 @@
                   }
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           },
           "selector": {
@@ -173,6 +180,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -197,8 +211,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": -0.25
+                      "ColorId": 0,
+                      "Percent": -0.1
                     }
                   }
                 }
@@ -225,82 +239,137 @@
             "id": "default"
           }
         }
+      ],
+      "referenceLabelLayout": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "rowCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backgroundShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "shapeCustomRectangle": [
+        {
+          "properties": {
+            "rectangleRoundedCurveCustomStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "29a91a5c05b4243876c7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
-              }
-            },
-            "Property": "Total de Pacientes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "eb001ec4d5f857db959e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
-              }
-            },
-            "Property": "Total NPS Respondidos"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "41da902326e7d54b6bff",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
-              }
-            },
-            "Property": "Promotores"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a2f9b604310f676d7d96",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
-              }
-            },
-            "Property": "Detratores"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5cc0b2764f6a03085222",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "@Medidas"
-              }
-            },
-            "Property": "Neutros"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

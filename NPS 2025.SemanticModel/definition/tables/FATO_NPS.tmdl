@@ -61,7 +61,7 @@ table FATO_NPS
 		queryGroup: FATO
 		source = ```
 				let
-				    Fonte = Csv.Document(File.Contents("G:\Meu Drive\Consultorias\NPS_FICTICIO\nps_ficticio_100k.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Fonte = Csv.Document(File.Contents("E:\Meu Drive\Consultorias\NPS_FICTICIO\nps_ficticio_100k.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"id", Int64.Type}, {"id_paciente", Int64.Type}, {"data_hora", type datetime}, {"ubs", Int64.Type}, {"setor", type text}, {"nota_recomendacao", Int64.Type}}),
 				    
@@ -101,9 +101,10 @@ table FATO_NPS
 				    
 				    // 4. Recombinar as tabelas filtradas em um único resultado
 				    #"Tabela Final" = Table.Combine(#"Agrupado por Paciente"[TabelaFiltrada]),
-				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tabela Final",{{"data_hora", type date}})
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tabela Final",{{"data_hora", type date}}),
+				  #"Valor substituído" = Table.ReplaceValue(#"Tipo Alterado1", "Dispensação de Medicamentos", "Dispensação", Replacer.ReplaceValue, {"setor"})
 				in
-				    #"Tipo Alterado1"
+				    #"Valor substituído"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

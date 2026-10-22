@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "78abd3a5c74425713f82",
   "position": {
-    "x": 9.9646142958244859,
-    "y": 10.870488322717621,
-    "z": 4007,
-    "height": 43.481953290870486,
-    "width": 457.4663835810332,
-    "tabOrder": 4007
+    "x": 9.8507462686567155,
+    "y": 18.805970149253731,
+    "z": 6000,
+    "height": 77.910447761194021,
+    "width": 237.31343283582089,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,51 @@
               {
                 "textRuns": [
                   {
-                    "value": "NPS FICTÍCIO | GRUPO UBS LTDA."
+                    "value": "NPS FICTÍCIO",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontStyle": "italic",
+                      "fontSize": "16pt",
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "GRUPO UBS LTDA",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#ffffff"
+                    }
                   }
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

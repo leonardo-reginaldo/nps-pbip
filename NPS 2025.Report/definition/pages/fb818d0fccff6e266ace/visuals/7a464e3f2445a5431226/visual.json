@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "7a464e3f2445a5431226",
   "position": {
-    "x": 207.67871485943775,
-    "y": 453.39759036144579,
-    "z": 4004,
-    "height": 247.77510040160644,
-    "width": 542.843373493976,
-    "tabOrder": 4004
+    "x": 247.624466571835,
+    "y": 490.697012802276,
+    "z": 5000,
+    "height": 205.74679943100998,
+    "width": 523.47083926031291,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -85,7 +85,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "233.8313253012048D"
+                  "Value": "221.98763312044542D"
                 }
               }
             }
@@ -125,54 +125,73 @@
             }
           }
         }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.1
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_NPS_LEGENDA.Faixa de Pontuação"
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8fd0a280fe199192359d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_NPS_LEGENDA"
-              }
-            },
-            "Property": "Faixa de Pontuação"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f736f754a8892efc506f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_NPS_LEGENDA"
-              }
-            },
-            "Property": "Significado Prático"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "173bdfaba0a44f56bf9f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_NPS_LEGENDA"
-              }
-            },
-            "Property": "Zona de Classificação"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

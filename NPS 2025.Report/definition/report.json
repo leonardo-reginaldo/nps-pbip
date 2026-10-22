@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
   "themeCollection": {
     "baseTheme": {
       "name": "CY26SU04",
@@ -48,6 +48,9 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "payPalKPIDonutChart55A431AB15A540ED924ACD72ED8D259F"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",
