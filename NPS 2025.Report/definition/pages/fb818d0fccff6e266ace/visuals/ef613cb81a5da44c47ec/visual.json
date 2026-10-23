@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ef613cb81a5da44c47ec",
   "position": {
-    "x": 994.13940256045521,
-    "y": 14.566145092460882,
+    "x": 1020.5405405405405,
+    "y": 13.527738264580378,
     "z": 12000,
-    "height": 86.865671641791039,
-    "width": 249.85074626865671,
+    "height": 90,
+    "width": 242,
     "tabOrder": 9000
   },
   "visual": {
@@ -213,6 +213,13 @@
                   "Value": "9D"
                 }
               }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -291,5 +298,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5281725578623555ffd7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_CALENDARIO"
+              }
+            },
+            "Property": "Dia da Semana"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
