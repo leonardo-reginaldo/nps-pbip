@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "cf99d35b128a4024a2f9",
   "position": {
-    "x": 627.254623044097,
-    "y": 187.53911806543385,
-    "z": 11000,
+    "x": 583.55618776671383,
+    "y": 130.18492176386917,
+    "z": 13000,
     "height": 85.576102418207682,
     "width": 136.55761024182078,
     "tabOrder": 10000
@@ -66,9 +66,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#007922'"
                     }
                   }
                 }
@@ -78,9 +77,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#007922'"
                     }
                   }
                 }
@@ -90,9 +88,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#007922'"
                     }
                   }
                 }
@@ -135,9 +132,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#007922'"
                     }
                   }
                 }
@@ -169,9 +165,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#007922'"
                     }
                   }
                 }

@@ -36,9 +36,8 @@ table @Medidas
 			RETURN
 			    ResultadoNPS
 			```
+		formatString: #,0.0
 		lineageTag: 32b7c29f-8359-4cb0-bdc4-85db58df3dc1
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Promotores =
 			

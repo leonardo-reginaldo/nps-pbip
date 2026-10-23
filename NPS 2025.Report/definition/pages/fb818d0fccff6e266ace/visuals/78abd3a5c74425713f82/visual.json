@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "78abd3a5c74425713f82",
   "position": {
-    "x": 9.8507462686567155,
-    "y": 18.805970149253731,
-    "z": 6000,
-    "height": 77.910447761194021,
-    "width": 237.31343283582089,
+    "x": 14.566145092460882,
+    "y": 19.118065433854909,
+    "z": 8000,
+    "height": 78.29302987197724,
+    "width": 217.58179231863443,
     "tabOrder": 5000
   },
   "visual": {
@@ -23,7 +23,7 @@
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontStyle": "italic",
-                      "fontSize": "16pt",
+                      "fontSize": "14pt",
                       "color": "#ffffff"
                     }
                   }
@@ -42,7 +42,7 @@
                     "value": "GRUPO UBS LTDA",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "16pt",
+                      "fontSize": "14pt",
                       "color": "#ffffff"
                     }
                   }

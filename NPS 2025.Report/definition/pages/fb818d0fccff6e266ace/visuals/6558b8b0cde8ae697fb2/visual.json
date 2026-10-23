@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6558b8b0cde8ae697fb2",
   "position": {
-    "x": 788.05970149253733,
-    "y": 11.641791044776118,
-    "z": 1000,
-    "height": 85.074626865671632,
-    "width": 172.83582089552237,
+    "x": 507.08392603129448,
+    "y": 19.118065433854909,
+    "z": 3000,
+    "height": 84.665718349928881,
+    "width": 226.68563300142247,
     "tabOrder": 0
   },
   "visual": {
@@ -15,6 +15,36 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Zona"
+                }
+              },
+              "queryRef": "DIM_UBS.Zona",
+              "nativeQueryRef": "Zona",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Bairro"
+                }
+              },
+              "queryRef": "DIM_UBS.Bairro",
+              "nativeQueryRef": "Bairro",
+              "active": true
+            },
             {
               "field": {
                 "Column": {
@@ -51,6 +81,86 @@
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DIM_UBS.Zona"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Zona"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_UBS.Bairro"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Bairro"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_UBS.Nome UBS"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Zona Oeste'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Jaguaré'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "data": [
         {
@@ -59,13 +169,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
-                }
-              }
-            },
-            "isInvertedSelectionMode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -80,6 +183,97 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selfFilter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_UBS",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Or": {
+                        "Left": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Zona"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'10'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "d"
+                                      }
+                                    },
+                                    "Property": "Bairro"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'10'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Contains": {
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Nome UBS"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'10'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
+                    }
+                  }
+                ]
               }
             }
           }

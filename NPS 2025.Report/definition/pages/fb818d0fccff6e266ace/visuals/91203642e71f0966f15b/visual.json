@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "91203642e71f0966f15b",
+  "position": {
+    "x": 754.70839260312948,
+    "y": 130.18492176386914,
+    "z": 16000,
+    "height": 297.69559032716927,
+    "width": 239.43100995732576,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "esriVisual",
+    "query": {
+      "queryState": {
+        "Location": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_UBS"
+                    }
+                  },
+                  "Property": "Endereço Completo"
+                }
+              },
+              "queryRef": "DIM_UBS.Endereço Completo",
+              "nativeQueryRef": "Endereço Completo"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "@Medidas"
+                    }
+                  },
+                  "Property": "NPS"
+                }
+              },
+              "queryRef": "@Medidas.NPS",
+              "nativeQueryRef": "NPS"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_UBS"
+                        }
+                      },
+                      "Property": "Nome UBS"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DIM_UBS.Nome UBS)",
+              "nativeQueryRef": "Nome",
+              "displayName": "Nome"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "@Medidas"
+                  }
+                },
+                "Property": "NPS"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "mapControls": [
+        {
+          "properties": {}
+        }
+      ],
+      "mapTools": [
+        {
+          "properties": {
+            "basemaps": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "share": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "settings": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "analysis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "geoSearch": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "layerVisible": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapObject": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"portalUrl\":\"https://www.arcgis.com\",\"version\":\"2.4\",\"isAuthorNamedUser\":false,\"map\":{\"webmap\":{\"is3d\":false,\"itemData\":{\"operationalLayers\":[{\"id\":\"MyLayer\",\"visibility\":true,\"opacity\":1,\"minScale\":0,\"maxScale\":0,\"refreshInterval\":0,\"title\":\"Endereço Completo\",\"objectIdField\":\"objectId\",\"type\":\"DataLayer\",\"layerType\":\"ArcGISFeatureLayer\",\"popupEnabled\":true,\"disablePopup\":false,\"visible\":true,\"geometryType\":\"point\",\"source\":[{\"attributes\":{},\"geometry\":{\"x\":0,\"y\":0,\"type\":\"point\",\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100}}}],\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100},\"esriMaps\":{\"isTimeEnabled\":\"false\",\"clusterInfo\":null,\"lastShareInfo\":null},\"timeInfo\":null,\"showLabels\":true,\"featureCollection\":{\"layers\":[{\"popupInfo\":{\"popupElements\":[{\"type\":\"fields\",\"fieldInfos\":[{\"fieldName\":\"Min_DIM_UBS_Nome_20UBS_\",\"isEditable\":true,\"label\":\"Nome\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"ROW_ID\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"ROW_ID\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"DIM_UBS_Endere_C3_A7o_20Completo\",\"isEditable\":true,\"label\":\"Endereço Completo\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"expression/_40Medidas_NPS\",\"isEditable\":true,\"label\":\"NPS\",\"visible\":true}]}],\"expressionInfos\":[{\"name\":\"_40Medidas_NPS\",\"title\":\"NPS\",\"expression\":\"// PowerBI number format: #,0.0\\n\\nif (IsEmpty($feature[\\\"_40Medidas_NPS\\\"]))\\n{\\n  return $feature[\\\"_40Medidas_NPS\\\"] \\n}\\nText($feature[\\\"_40Medidas_NPS\\\"], \\\"#,###.0\\\")\"}],\"fieldInfos\":[{\"fieldName\":\"Min_DIM_UBS_Nome_20UBS_\",\"isEditable\":true,\"label\":\"Nome\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"ROW_ID\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"ROW_ID\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"DIM_UBS_Endere_C3_A7o_20Completo\",\"isEditable\":true,\"label\":\"Endereço Completo\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"_40Medidas_NPS\",\"format\":{\"digitSeparator\":true,\"places\":2},\"isEditable\":true,\"label\":\"NPS\",\"tooltip\":\"\",\"visible\":false},{\"fieldName\":\"expression/_40Medidas_NPS\",\"isEditable\":true,\"label\":\"NPS\",\"visible\":true}],\"title\":\"\",\"actions\":[]},\"layerDefinition\":{\"objectIdField\":\"objectId\",\"fields\":[{\"alias\":\"objectId\",\"editable\":false,\"name\":\"objectId\",\"nullable\":false,\"type\":\"esriFieldTypeOID\"},{\"alias\":\"Endereço Completo\",\"editable\":true,\"length\":-1,\"name\":\"DIM_UBS_Endere_C3_A7o_20Completo\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"NPS\",\"editable\":true,\"name\":\"_40Medidas_NPS\",\"nullable\":true,\"type\":\"esriFieldTypeDouble\"},{\"alias\":\"Nome\",\"editable\":true,\"length\":-1,\"name\":\"Min_DIM_UBS_Nome_20UBS_\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"ROW_ID\",\"editable\":true,\"name\":\"ROW_ID\",\"nullable\":true,\"type\":\"esriFieldTypeInteger\"}],\"geometryType\":\"point\",\"drawingInfo\":{\"renderer\":{\"authoringInfo\":{\"classificationMethod\":\"esriClassifyNaturalBreaks\",\"type\":\"classedSize\"},\"type\":\"classBreaks\",\"visualVariables\":[],\"classBreakInfos\":[{\"classMaxValue\":-17.988453,\"symbol\":{\"type\":\"esriSMS\",\"color\":[17,141,255,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":3,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,204],\"width\":1,\"style\":\"esriSLSSolid\"}}},{\"classMaxValue\":-0.98434,\"symbol\":{\"type\":\"esriSMS\",\"color\":[17,141,255,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":9.75,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,204],\"width\":1,\"style\":\"esriSLSSolid\"}}},{\"classMaxValue\":13.490015,\"symbol\":{\"type\":\"esriSMS\",\"color\":[17,141,255,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":16.5,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,204],\"width\":1,\"style\":\"esriSLSSolid\"}}},{\"classMaxValue\":31.080355,\"symbol\":{\"type\":\"esriSMS\",\"color\":[17,141,255,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":23.25,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,204],\"width\":1,\"style\":\"esriSLSSolid\"}}},{\"classMaxValue\":42.09194432728807,\"symbol\":{\"type\":\"esriSMS\",\"color\":[17,141,255,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":30,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,204],\"width\":1,\"style\":\"esriSLSSolid\"}}}],\"defaultLabel\":\"Outro\",\"defaultSymbol\":{\"type\":\"esriSMS\",\"color\":[128,128,128,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":3,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,64],\"width\":0.75,\"style\":\"esriSLSSolid\"}},\"field\":\"_40Medidas_NPS\",\"minValue\":-27.367159408709547},\"transparency\":0},\"featureReduction\":null,\"locationProvider\":{\"type\":\"cachedgeocode\",\"sourceCountry\":\"world\",\"targetSR\":102100,\"lookupFields\":[{\"lookupField\":\"SingleLine\",\"outField\":\"DIM_UBS_Endere_C3_A7o_20Completo\"}],\"geocodeServiceUrl\":\"https://utility.arcgis.com/usrsvcs/appservices/L7zl5sI0W1hBHWRI/rest/services/World/GeocodeServer\"},\"minScale\":0,\"maxScale\":0,\"definitionExpression\":null,\"templates\":[{\"name\":\"New Feature\",\"description\":\"\",\"prototype\":{\"attributes\":{\"DIM_UBS_Endere_C3_A7o_20Completo\":null,\"_40Medidas_NPS\":null,\"Min_DIM_UBS_Nome_20UBS_\":null,\"ROW_ID\":null}}}],\"elevationInfo\":null,\"name\":\"Endereço Completo\",\"type\":\"DataLayer\",\"queryParameters\":{\"tableId\":\"\"}},\"featureSet\":{\"features\":[{\"attributes\":{},\"geometry\":{\"x\":0,\"y\":0,\"type\":\"point\",\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100}}}]}}]}}],\"tables\":[],\"baseMap\":{\"baseMapLayers\":[{\"id\":\"VectorTile_1970\",\"opacity\":1,\"title\":\"Light Gray Base\",\"visibility\":true,\"layerType\":\"VectorTileLayer\",\"styleUrl\":\"https://cdn.arcgis.com/sharing/rest/content/items/291da5eab3a0412593b66d384379f89f/resources/styles/root.json\"},{\"id\":\"VectorTile_7117\",\"opacity\":1,\"title\":\"Light Gray Reference\",\"visibility\":true,\"layerType\":\"VectorTileLayer\",\"styleUrl\":\"https://cdn.arcgis.com/sharing/rest/content/items/1768e8369a214dfab4e2167d5c5f2454/resources/styles/root.json\",\"isReference\":true}],\"title\":\"Light Gray Canvas\",\"origItemId\":\"de45b9cad20141ebb82fae0da8b3e2c6\"},\"version\":\"2.26\",\"authoringApp\":\"ArcGIS for Power BI\",\"authoringAppVersion\":\"2026.2.992\",\"bookmarks\":[],\"initialState\":{\"viewpoint\":{\"targetGeometry\":{\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100},\"xmin\":-5202119.362509832,\"ymin\":-2706957.2957784077,\"xmax\":-5184615.28303252,\"ymax\":-2684943.4316322682}}}}},\"webmapExtensions\":{\"format\":2}},\"embedCheckPassed\":false}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "geometryCache": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"key\":\"cachedgeocode@@world\",\"compressionMethod\":\"pako\",\"data\":\"H4sIAAAAAAAAA5XTzW7UMBAH8FeJfE4tjz/icc5cuHIBhDi4WXfrkiaRnSyCKk/TE2ceYV+MaUAL3V0OjhQpchL/NDN/P7E8+Tn6/l24CykMXWDtE+v9HPL8/kvcsVahsTX7uj2DkCDEWrN9GB/DnGLIrP1E348dbTIOb9+wls1Lt6TlEOsqH5/HavJLP1Y3VZ7q6jb5HHt2+v/bC/aBtTcGEBVoriRqQRfU7CMty8YJsMC1UtK9XHZd6zPudpn9MB+fyzjnGiM53c22r/njWQHKWI6AZlu/5DJhfvCFmtBUnHZKvC5OIiKX9HLDmkvtLoX9EnL01W6sjj8LVdRWcW3RnqsguJWgL70ppF38HnIhZEjgaIw6GRYAubDyN60upUPsffXoUyxsJTZCCW4abU6W1jRKdNpt1pUubtYwHnzV+e5+DDHF4b50hNpaUgyYV81EZxrkFFOxjfBKob2fSikHSnOAf9pppAMO2sB/UjlRQVTWWDo4BE0JkfZv/oU1jhtK/xbVK+ftwe8Xn44/iiQpJIWfY2PPTgBKmp2gEa7r5/UX+TUer40EAAA=\"}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "theme": [
+        {
+          "properties": {
+            "enable": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Localização'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

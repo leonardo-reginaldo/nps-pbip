@@ -18,6 +18,30 @@ table DIM_UBS
 
 		annotation SummarizationSetBy = Automatic
 
+	column Bairro
+		lineageTag: fd4df633-73c3-4d22-bf69-66893e3be30f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bairro]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zona
+		lineageTag: 59eb943c-5170-4ee9-ad30-70d997c75d12
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Zona]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereço Completo'
+		lineageTag: 7332c2d4-ae94-4ea9-a245-8cbc70cec7f7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Endereço Completo]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DIM_UBS = calculated
 		mode: import
 		source = ```
@@ -34,7 +58,39 @@ table DIM_UBS
 				RETURN
 				    ADDCOLUMNS (
 				        _TabelaBase,
-				        "Nome UBS", "UBS " & FORMAT ( [Código UBS], "00" )
+				        "Nome UBS", "UBS " & FORMAT ( [Código UBS], "00" ),
+				        "Bairro", 
+				            SWITCH (
+				                [Código UBS],
+				                1, "Santana",
+				                2, "Tucuruvi",
+				                3, "Vila Maria",
+				                4, "Cachoeirinha",
+				                5, "Freguesia do Ó",
+				                6, "Lapa",
+				                7, "Pinheiros",
+				                8, "Perdizes",
+				                9, "Butantã",
+				                10, "Jaguaré",
+				                "São Paulo"
+				            ),
+				        "Zona", 
+				            IF ( [Código UBS] <= 5, "Zona Norte", "Zona Oeste" ),
+				        "Endereço Completo",
+				            SWITCH (
+				                [Código UBS],
+				                1, "Santana, São Paulo - SP, Brasil",
+				                2, "Tucuruvi, São Paulo - SP, Brasil",
+				                3, "Vila Maria, São Paulo - SP, Brasil",
+				                4, "Vila Nova Cachoeirinha, São Paulo - SP, Brasil",
+				                5, "Freguesia do Ó, São Paulo - SP, Brasil",
+				                6, "Lapa, São Paulo - SP, Brasil",
+				                7, "Pinheiros, São Paulo - SP, Brasil",
+				                8, "Perdizes, São Paulo - SP, Brasil",
+				                9, "Butantã, São Paulo - SP, Brasil",
+				                10, "Jaguaré, São Paulo - SP, Brasil",
+				                "São Paulo - SP, Brasil"
+				            )
 				    )
 				```
 

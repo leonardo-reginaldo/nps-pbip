@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "d09e32ae94372125eed4",
   "position": {
-    "x": 811.15220483641542,
-    "y": 193.00142247510669,
-    "z": 3000,
-    "height": 274.02560455192037,
-    "width": 444.26742532005693,
+    "x": 1037.8378378378379,
+    "y": 130.18492176386914,
+    "z": 5000,
+    "height": 294.05405405405406,
+    "width": 213.94025604551922,
     "tabOrder": 2000
   },
   "visual": {
@@ -145,14 +145,14 @@
                                   },
                                   "Right": {
                                     "Literal": {
-                                      "Value": "1D"
+                                      "Value": "76D"
                                     }
                                   }
                                 }
                               },
                               "Right": {
                                 "Comparison": {
-                                  "ComparisonKind": 3,
+                                  "ComparisonKind": 4,
                                   "Left": {
                                     "Measure": {
                                       "Expression": {
@@ -174,7 +174,109 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#6B007B'"
+                              "Value": "'#007922'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "@Medidas"
+                                        }
+                                      },
+                                      "Property": "NPS"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "51D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 4,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "@Medidas"
+                                        }
+                                      },
+                                      "Property": "NPS"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "75D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#e8d166'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "@Medidas"
+                                        }
+                                      },
+                                      "Property": "NPS"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "1D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "@Medidas"
+                                        }
+                                      },
+                                      "Property": "NPS"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "50D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#E66C37'"
                             }
                           }
                         },
