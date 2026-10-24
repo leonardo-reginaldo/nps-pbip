@@ -89,12 +89,6 @@ As medidas DAX de percentual de promotores, percentual de detratores e NPS consi
 
 Implementação de um cartão dinâmico (*New Card Visual*), com formatação condicional em DAX para atualizar automaticamente a classificação e a cor de destaque conforme o NPS calculado e os filtros aplicados.
 
-Exemplos de classificação visual:
-
-- **Verde:** Zona de Excelência ou Zona de Qualidade.
-- **Amarelo ou laranja:** Zona de Aprendizagem.
-- **Vermelho:** Zona Crítica.
-
 ### 3.2. Geolocalização sem Erros
 
 Tratamento e padronização dos dados geográficos no Power Query, incluindo bairro, município e referências das unidades, para melhorar a precisão da representação espacial das UBSs em mapas do Azure Maps.
